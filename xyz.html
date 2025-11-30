@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Console Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Open Console to Start the Quiz</h2>
+    <p>Press F12 or Right-click → Inspect → Console</p>
+
+    <script>
+        // Predefined questions and answers
+        const quiz = [
+            { question: "What is the capital of France?", answer: "paris" },
+            { question: "What is 5 + 7?", answer: "12" },
+            { question: "Which planet is known as the Red Planet?", answer: "mars" },
+            { question: "What language is used to style web pages?", answer: "css" }
+        ];
+
+        let score = 0;
+
+        // Quiz loop
+        for (let i = 0; i < quiz.length; i++) {
+            const userInput = prompt(quiz[i].question);
+
+            if (!userInput) {
+                alert("No answer entered!");
+                continue;
+            }
+
+            const answerClean = userInput.toLowerCase().trim();
+
+            if (answerClean === quiz[i].answer) {
+                alert("Correct!");
+                score++;
+            } else {
+                alert("Wrong! Correct answer was: " + quiz[i].answer);
+            }
+        }
+
+        alert("Quiz Over! Your final score is: " + score + "/" + quiz.length);
+    </script>
+</body>
+</html>
